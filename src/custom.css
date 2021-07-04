@@ -1,0 +1,174 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.app-container {
+    display: flex;
+
+}
+
+.dasboard-container {
+    padding-top: 200px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.note-container {
+    overflow: hidden;
+    position: relative;
+
+    width: 200px;
+    height: 210px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    padding-top: 40px;
+    border: 1px solid #555;
+    box-sizing: border-box;
+
+}
+
+
+
+.note-bar {
+    color: #666144;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    transition: 300ms all;
+    transform: translate(0px, -100px);
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+    border-bottom-color: #eee;
+}
+
+
+.note-bar-settings {
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    width: 100%;
+    transition: 300ms all;
+    background-color: white;
+    transform: translate(0px, -170px);
+
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 3px 10px #888;
+}
+
+.click-note-bar-settings {
+    transform: translate(0px, -40px);
+
+}
+
+
+.note-bar>div:nth-child(1):hover,
+.note-bar>div>div:hover {
+    background: rgba(0,0,0,.3);;
+}
+
+.note-bar>div:nth-child(1) {
+    padding: 5px 13px;
+    font-size: 30px;
+
+}
+
+.note-bar>div:nth-child(1),
+.note-bar>div>div {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.note-bar>div {
+    display: flex;
+}
+
+.note-bar>div>div {
+    padding: 5px 13px;
+}
+
+.note-bar>div>div:nth-child(1) {
+    margin-top: -9px;
+}
+
+
+
+
+.click-note-bar {
+    transform: translate(0px, -40px);
+
+}
+
+.note-container textarea {
+    padding: 10px;
+    border: 0;
+    width: 100%;
+    outline: none;
+    resize: none;
+    height: 170px;
+    box-sizing: border-box;
+}
+
+.note-container textarea::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+.note-container textarea::-webkit-scrollbar-track {
+    background: #f1f1f1;
+
+}
+
+/* Handle */
+.note-container textarea::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.note-container textarea::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+
+.colors-container {
+    width: 100%;
+    height: 70px;
+    display: flex;
+}
+
+.colors-container div {
+    cursor: pointer;
+    width: 10%;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+
+
+.delete-note {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+    color: darkslategray;
+}
+
+.delete-note:hover {
+    color: red;
+    background-color: #eee;
+}
