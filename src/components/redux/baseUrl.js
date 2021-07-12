@@ -1,0 +1,1 @@
+export const baseNotesUrl = "http://localhost:3000/"

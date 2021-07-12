@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Note from '../note/Not'
+import { getAllColorsAction, getAllNotesAction } from '../redux/actions'
 
 
 let data = [
@@ -10,48 +12,83 @@ let data = [
 
 function Dashboard() {
 
-    const [dataState, setDataState] = useState(data)
-    const [idNo, setidNo] = useState({ id: 1 })
     const [showSettingsClass, setShowSettingsClass] = useState("")
     const [showBarClass, setShowBarClass] = useState("")
-    const [color, setColor] = useState({ color: "burlywood" })
+    const [saveAlert, setsaveAlert] = useState([])
+    const [searchState, setSearchState] = useState([])
+    const [tempState, setTempState] = useState([])
+    const [stateSearchText, setStateSearchText] = useState("")
 
-    const handleNewNote = (indexNo) => {
-        setidNo(value => ({ ...value, id: value.id + 1, indexNo }))
-    }
+
+    const state = useSelector(state => state.noteReducer.notes)
+    useLayoutEffect(() => {
+        setSearchState([
+            ...state.map(a => tempState.find(note => note.id === a.id)
+                ? { ...a, note: tempState.find(note => note.id === a.id).note }
+                : a)
+                .filter(a => a.note.search(stateSearchText) !== -1
+                    ? true
+                    : false)
+        ])
+    }, [state])
+
 
     useEffect(() => {
-        if (idNo.id > 1) {
-            setDataState(value => [{ id: idNo.id, note: "note" + idNo.id }, ...value])
+        if (saveAlert.length > 0) {
+            window.onbeforeunload = function (event) {
+                return "";
+            };
         }
-    }, [idNo])
+        else {
+            window.onbeforeunload = null;
+        }
+    }, [saveAlert])
+
+    const dispatch = useDispatch()
+
+    useLayoutEffect(() => {
+        dispatch(getAllNotesAction())
+        dispatch(getAllColorsAction())
+    }, [])
 
     useEffect(() => {
-        console.log(dataState)
-    }, [dataState])
+        setSearchState([
+            ...state.map(a => tempState.find(note => note.id === a.id) ? { ...a, note: tempState.find(note => note.id === a.id).note } : a).filter(a => a.note.search(stateSearchText) !== -1 ? true : false)
+        ])
+    }, [stateSearchText])
 
 
+    const allColors = useSelector(state => state.colorReducer.colors)
 
     return (
         <div className="dasboard-container">
-            {
-                dataState.map(note =>
-                    <Note
-                        handleNewNote={handleNewNote}
-                        key={note.id} yazi={note.note}
-                        indexNo={note.id}
+            <input placeholder="Search" onChange={(e) => {
+                setStateSearchText(e.target.value)
+            }} className="search-note-input" type="text" name="" id="" />
+            <div className="dashboard-note-container">
+                {
+                    searchState.map(note =>
+                        <Note
+                            key={note.id}
+                            yazi={note.note}
+                            indexNo={note.id}
 
-                        setShowBarClass={setShowBarClass}
-                        setShowSettingsClass={setShowSettingsClass}
-                        setColor={setColor}
+                            setShowBarClass={setShowBarClass}
+                            setShowSettingsClass={setShowSettingsClass}
 
-                        showSettingsClass={showSettingsClass}
-                        showBarClass={showBarClass}
-                        color={color}
-
-                    />
-                )
-            }
+                            notesLength={state.length}
+                            showSettingsClass={showSettingsClass}
+                            showBarClass={showBarClass}
+                            colorId={note.colorId}
+                            color={allColors[note.colorId - 1]?.color}
+                            setsaveAlert={setsaveAlert}
+                            setTempState={setTempState}
+                            tempState={tempState}
+                            saveAlert={saveAlert}
+                        />
+                    )
+                }
+            </div>
         </div>
     )
 }

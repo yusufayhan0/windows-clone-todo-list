@@ -1,72 +1,76 @@
 {
-    "notes":[
-        {
-            "id":1,
-            "note":"ne kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri",
-            "colorId":2
-        },
-        {
-            "id":2,
-            "note":"ek, buraya metin gelecek' yazmaya kıyasla daha dengeli bir harf dağılımı sağlayarak okunurluğu artırmasıdır. Şu anda birçok masaüstü yayıncılık",
-            "colorId":5
-        },
-        {
-            "id":3,
-            "note":"ar içinde, bazen kazara, bazen bilinçli olarak (örneğin mizah katılarak), çeşitli sürümleri g",
-            "colorId":3
-        },
-        {
-            "id":4,
-            "note":"önceden belirlenmiş metin bloklarını yineler. Bu da, bu üreteci İnternet üzerindeki gerçek",
-            "colorId":8
-        },
-        {
-            "id":5,
-            "note":"inia'daki Hampden-Sydney College'dan Latince profesörü Richard McClintock, bir Lorem Ipsum pasajında geçen ve anlaşılması en güç sözcüklerden biri olan 'consectetur' sözcüğünün klasik edebiyattaki örneklerini",
-            "colorId":6
-        }
-    ],
-    "colors":[
-        {
-            "id":1,
-            "color":"blue"
-        },
-        {
-            "id":2,
-            "color":"coral"
-        },
-        {
-            "id":3,
-            "color":"brown"
-        },
-        {
-            "id":4,
-            "color":"darkgreen"
-        },
-        {
-            "id":5,
-            "color":"hotpink"
-        },
-        {
-            "id":6,
-            "color":"gold"
-        },
-        {
-            "id":7,
-            "color":"indigo"
-        },
-        {
-            "id":8,
-            "color":"red"
-        },
-        {
-            "id":9,
-            "color":"darkslategray"
-        },
-        {
-            "id":10,
-            "color":"burlywood"
-        }
-
-    ]
+  "notes": [
+    {
+      "id": 8,
+      "note": "asd sada ds a",
+      "colorId": 8
+    },
+    {
+      "note": "",
+      "colorId": 10,
+      "id": 47
+    },
+    {
+      "note": "",
+      "colorId": 10,
+      "id": 48
+    },
+    {
+      "note": "",
+      "colorId": 10,
+      "id": 50
+    },
+    {
+      "note": "",
+      "colorId": 10,
+      "id": 53
+    },
+    {
+      "note": "",
+      "colorId": 10,
+      "id": 54
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "color": "blue"
+    },
+    {
+      "id": 2,
+      "color": "coral"
+    },
+    {
+      "id": 3,
+      "color": "brown"
+    },
+    {
+      "id": 4,
+      "color": "darkgreen"
+    },
+    {
+      "id": 5,
+      "color": "hotpink"
+    },
+    {
+      "id": 6,
+      "color": "gold"
+    },
+    {
+      "id": 7,
+      "color": "indigo"
+    },
+    {
+      "id": 8,
+      "color": "red"
+    },
+    {
+      "id": 9,
+      "color": "darkslategray"
+    },
+    {
+      "id": 10,
+      "color": "burlywood"
+    }
+  ]
 }
