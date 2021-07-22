@@ -1,6 +1,6 @@
 
 <p align="center">
- <img src="https://github.com/yusufayhan0/react-aynisini-bul/blob/master/ezgif-3-ffa7bcd4f251.gif" />
+ <img src="https://github.com/yusufayhan0/windows-clone-todo-list/blob/master/ezgif-3-ffa7bcd4f251.gif" />
 </p>
 
 
