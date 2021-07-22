@@ -55,6 +55,12 @@ function Not(props) {
             props.setsaveAlert(value => [...value, props.indexNo])
     }
 
+    const handleEndNote = () => {
+        props.notesLength !== 1
+            ? dispatch(deleteNoteAction(props.indexNo))
+            : handleEndNotesAnimastion()
+    }
+
     return (
         <div style={{ backgroundColor: props.color }} className={"note-container " + endAnimationState} onClick={() => {
             props.setShowBarClass({ class: "click-note-bar", indexNo: props.indexNo })
@@ -71,16 +77,14 @@ function Not(props) {
                     }
 
                 </div>
-                <div onClick={() => props.notesLength !== 1
-                    ? dispatch(deleteNoteAction(props.indexNo))
-                    : handleEndNotesAnimastion()} className="delete-note">
+                <div onClick={handleEndNote} className="delete-note">
                     <p>Notu Sil</p>
                 </div>
             </div>
             <div
                 style={{ backgroundColor: props.color, color: darkColorArray.indexOf(props.colorId) === -1 ? "#000" : "#fff" }}
                 className={"note-bar " + (props.showBarClass.indexNo === props.indexNo ? props.showBarClass.class : "")}>
-                
+
                 <div onClick={() =>
                     dispatch(createNoteAction({ note: "", colorId: 10 }))
                 }>+</div>
@@ -91,9 +95,7 @@ function Not(props) {
                         props.setShowSettingsClass({ class: "click-note-bar-settings", indexNo: props.indexNo })
                     }}>...</div>
                     <div
-                        onClick={() => props.notesLength !== 1
-                            ? dispatch(deleteNoteAction(props.indexNo))
-                            : handleEndNotesAnimastion()}
+                        onClick={handleEndNote}
                     >X</div>
                 </div>
             </div>
